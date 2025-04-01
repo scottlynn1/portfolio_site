@@ -1,8 +1,46 @@
-// import * as React from "react"
-import { Button } from "@/components/ui/button"   
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 const ContactForm = () => {
-  return (<form action='https://script.google.com/macros/s/AKfycbwx_xlZMdmO2eHfMc8sTkt_J56UwDQgoQ4hRor95x4o8phKd8ukI5UP0GSTPbtfNrU9Aw/exec' method='POST' className="space-y-4">
+
+  const [error, setError] = useState('hidden');
+  const [success, setSuccess] = useState('hidden');
+
+
+  const handelSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+    console.log(data);
+   
+    fetch("https://script.google.com/macros/s/AKfycbwx_xlZMdmO2eHfMc8sTkt_J56UwDQgoQ4hRor95x4o8phKd8ukI5UP0GSTPbtfNrU9Aw/exec", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+     }).then((res) => res.json()).then((data) => {
+      console.log(data);
+      if (data.result === "success") {
+        setSuccess('block ');
+        setError('hidden');
+        form.reset();
+        console.log("Message sent successfully");
+      } else {
+        setError('block text-red-500');
+        setSuccess('hidden');
+        console.log("Something went wrong");
+      }
+    }).catch(() => {
+      setError('block text-red-500');
+      setSuccess('hidden');
+      console.log("Something went wrong");
+      })
+}
+
+
+  return (<form onSubmit={handelSubmit} action='https://script.google.com/macros/s/AKfycbwx_xlZMdmO2eHfMc8sTkt_J56UwDQgoQ4hRor95x4o8phKd8ukI5UP0GSTPbtfNrU9Aw/exec' method='POST' className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
                 <label
@@ -62,6 +100,8 @@ const ContactForm = () => {
                 name="message"
               />
             </div>
+            <div className={error}>Something Went Wrong</div>
+            <div className={success}>Thank You! I'll get back to you as soon as I can.</div>
             <Button className="w-full">
               Send Message
             </Button>
