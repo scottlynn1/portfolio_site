@@ -1,9 +1,18 @@
-import { useState } from 'react'
 import './App.css'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Github, Linkedin, Mail, ExternalLink, User, Code, Briefcase, Cpu, Send } from "lucide-react"
+import { Github, Linkedin, Mail, ExternalLink, User, Code, Cpu } from "lucide-react"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { AspectRatio } from "@/components/ui/aspect-ratio"
+import faceAvatar from './assets/face.png'
+import fullPhoto from './assets/fullphoto.jpg'
+import solarProject from './assets/solarproject.png'
+import UIProject from './assets/UIproject.png'
+import analysisProject from './assets/analysisproject.png'
+
+
+
 
 
 function App() {
@@ -43,21 +52,17 @@ function App() {
         </div>
       </header>
       <section className="py-12 md:py-24 lg:py-32 flex flex-col items-center text-center shadow-lg">
-        <div className="relative w-24 h-24 mb-8 rounded-full overflow-hidden border-4 border-primary">
-          {/* <Image
-            src="/placeholder.svg?height=96&width=96"
-            alt="Developer"
-            width={96}
-            height={96}
-            className="object-cover"
-            priority
-          /> */}
+        <div className="relative w-48 h-48 mb-8 rounded-full overflow-hidden border-4 border-primary">
+          <Avatar className='w-full h-full'>
+            <AvatarImage src={faceAvatar} />
+            <AvatarFallback>SL</AvatarFallback>
+          </Avatar>
         </div>
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-4">Scott Lynn</h1>
         <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-[700px]">
           Data Analyst & Software Engineer with a passion for building scalable web applications and data-driven solutions.
           <br />
-          <span className="text-primary"> Let's build something amazing together!</span>
+          <span className="text-primary"> Based in Florida, working everywhere! &#127760; &#128187;</span>
         </p>
         <div className="flex gap-4">
           <Button asChild size="lg">
@@ -93,11 +98,12 @@ function App() {
           <div>
             <h2 className="text-3xl font-bold tracking-tighter mb-4">About Me</h2>
             <p className="text-muted-foreground mb-4">
-              I'm a passionate full-stack developer with 5+ years of experience building web applications. I
-              specialize in creating responsive, accessible, and performant web experiences using modern technologies.
+            I'm an aspiring data analyst and developer with several projects and freelance work under my belt.
+            I have worked with technologies like Python, SQL, JavaScript, and React to analyze datasets, automate processes, and create user-friendly UIs'.
+            Passionate about problem-solving, I enjoy leveraging data and technology to build innovative solutions.
             </p>
             <p className="text-muted-foreground mb-6">
-              When I'm not coding, you can find me hiking, reading tech blogs, or contributing to open-source
+              When I'm not coding, you can find me kayaking, reading tech blogs, or contributing to open-source
               projects. I'm always eager to learn new technologies and improve my skills.
             </p>
             <Button asChild variant="outline">
@@ -108,12 +114,9 @@ function App() {
             </Button>
           </div>
           <div className="relative h-[400px] rounded-lg overflow-hidden">
-            {/* <Image
-              src="/placeholder.svg?height=400&width=600"
-              alt="Developer working"
-              fill
-              className="object-cover"
-            /> */}
+          <AspectRatio ratio={16 / 9}>
+            <img src={fullPhoto} alt="Girl in a jacket" width="500" height="600"></img>
+          </AspectRatio>
           </div>
         </div>
       </section>
@@ -125,12 +128,7 @@ function App() {
           <Card>
             <CardHeader className="p-0">
               <div className="relative h-48 w-full">
-                {/* <Image
-                  src="/placeholder.svg?height=192&width=384"
-                  alt="Project 1"
-                  fill
-                  className="object-cover rounded-t-lg"
-                /> */}
+                <img src={solarProject} alt="Project 1" className="object-cover rounded-t-lg" />
               </div>
             </CardHeader>
             <CardContent className="pt-6">
@@ -165,6 +163,8 @@ function App() {
           <Card>
             <CardHeader className="p-0">
               <div className="relative h-48 w-full">
+              <img src={UIProject} alt="Project 1" className="object-cover rounded-t-lg" />
+
                 {/* <Image
                   src="/placeholder.svg?height=192&width=384"
                   alt="Project 2"
@@ -205,6 +205,8 @@ function App() {
           <Card>
             <CardHeader className="p-0">
               <div className="relative h-48 w-full">
+              <img src={analysisProject} alt="Project 1" className="object-cover rounded-t-lg" />
+
                 {/* <Image
                   src="/placeholder.svg?height=192&width=384"
                   alt="Project 3"
@@ -310,7 +312,7 @@ function App() {
             </div>
           </div>
           <div>
-            <form className="space-y-4">
+            <form action='https://script.google.com/macros/s/AKfycbwx_xlZMdmO2eHfMc8sTkt_J56UwDQgoQ4hRor95x4o8phKd8ukI5UP0GSTPbtfNrU9Aw/exec' method='POST' className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label
@@ -323,6 +325,7 @@ function App() {
                     id="name"
                     className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                     placeholder="Your name"
+                    name="name"
                   />
                 </div>
                 <div className="space-y-2">
@@ -337,6 +340,7 @@ function App() {
                     type="email"
                     className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                     placeholder="Your email"
+                    name="email"
                   />
                 </div>
               </div>
@@ -351,6 +355,7 @@ function App() {
                   id="subject"
                   className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                   placeholder="Subject"
+                  name="subject"
                 />
               </div>
               <div className="space-y-2">
@@ -364,6 +369,7 @@ function App() {
                   id="message"
                   className="flex min-h-[120px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                   placeholder="Your message"
+                  name="message"
                 />
               </div>
               <Button className="w-full">
