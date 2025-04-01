@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -9,7 +7,6 @@ import { Github, Linkedin, Mail, ExternalLink, User, Code, Briefcase, Cpu, Send 
 
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
@@ -45,7 +42,7 @@ function App() {
           </div>
         </div>
       </header>
-      <section className="py-12 md:py-24 lg:py-32 flex flex-col items-center text-center">
+      <section className="py-12 md:py-24 lg:py-32 flex flex-col items-center text-center shadow-lg">
         <div className="relative w-24 h-24 mb-8 rounded-full overflow-hidden border-4 border-primary">
           {/* <Image
             src="/placeholder.svg?height=96&width=96"
@@ -56,9 +53,11 @@ function App() {
             priority
           /> */}
         </div>
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-4">John Developer</h1>
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-4">Scott Lynn</h1>
         <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-[700px]">
-          Full Stack Developer specializing in React, Next.js, and Node.js
+          Data Analyst & Software Engineer with a passion for building scalable web applications and data-driven solutions.
+          <br />
+          <span className="text-primary"> Let's build something amazing together!</span>
         </p>
         <div className="flex gap-4">
           <Button asChild size="lg">
@@ -70,26 +69,26 @@ function App() {
         </div>
         <div className="flex gap-4 mt-8">
           <Button variant="ghost" size="icon" asChild>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/scottlynn1?tab=repositories" target="_blank" rel="noopener noreferrer">
               <Github className="h-5 w-5" />
               <span className="sr-only">GitHub</span>
             </a>
           </Button>
           <Button variant="ghost" size="icon" asChild>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/scott-lynn-data-eng" target="_blank" rel="noopener noreferrer">
               <Linkedin className="h-5 w-5" />
               <span className="sr-only">LinkedIn</span>
             </a>
           </Button>
           <Button variant="ghost" size="icon" asChild>
-            <a href="mailto:john@example.com">
+            <a href="mailto:scottlynnfwa@gmail.com">
               <Mail className="h-5 w-5" />
               <span className="sr-only">Email</span>
             </a>
           </Button>
         </div>
       </section>
-      <section id="about" className="py-12 md:py-24 scroll-mt-16">
+      <section id="about" className="py-4 md:py-8 scroll-mt-16 shadow-lg">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-3xl font-bold tracking-tighter mb-4">About Me</h2>
@@ -119,7 +118,7 @@ function App() {
         </div>
       </section>
 
-      <section id="projects" className="py-12 md:py-24 scroll-mt-16">
+      <section id="projects" className="py-4 md:py-8 scroll-mt-16">
         <h2 className="text-3xl font-bold tracking-tighter mb-8">Featured Projects</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Project 1 */}
@@ -135,20 +134,20 @@ function App() {
               </div>
             </CardHeader>
             <CardContent className="pt-6">
-              <CardTitle>E-Commerce Platform</CardTitle>
+              <CardTitle>Solar Energy Output Estimator</CardTitle>
               <CardDescription className="mt-2 mb-4">
-                A full-featured online store built with Next.js, Stripe, and a headless CMS.
+                A full-stack Django application for estimating solar energy output and optimal system configurations.
               </CardDescription>
               <div className="flex flex-wrap gap-2 mb-4">
-                <Badge>Next.js</Badge>
-                <Badge>TypeScript</Badge>
-                <Badge>Stripe</Badge>
-                <Badge>Tailwind</Badge>
+                <Badge>Django</Badge>
+                <Badge>Google Maps API</Badge>
+                <Badge>Javascript</Badge>
+                <Badge>Tailwindcss</Badge>
               </div>
             </CardContent>
             <CardFooter className="flex justify-between">
               <Button asChild variant="outline" size="sm">
-                <a href="#" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/scottlynn1/Solar_energy_dashboard" target="_blank" rel="noopener noreferrer">
                   <Github className="mr-2 h-4 w-4" />
                   Code
                 </a>
@@ -175,20 +174,20 @@ function App() {
               </div>
             </CardHeader>
             <CardContent className="pt-6">
-              <CardTitle>Task Management App</CardTitle>
+              <CardTitle>User Interface for Database</CardTitle>
               <CardDescription className="mt-2 mb-4">
-                A collaborative task manager with real-time updates using React and Firebase.
+                A UI created using React to interect with a database of aggregated costumer reviews for product level analysis using a LLM.
               </CardDescription>
               <div className="flex flex-wrap gap-2 mb-4">
                 <Badge>React</Badge>
-                <Badge>Firebase</Badge>
-                <Badge>Redux</Badge>
-                <Badge>Material UI</Badge>
+                <Badge>Django</Badge>
+                <Badge>LlamaIndex LLM</Badge>
+                <Badge>Tailwindcss</Badge>
               </div>
             </CardContent>
             <CardFooter className="flex justify-between">
               <Button asChild variant="outline" size="sm">
-                <a href="#" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/scottlynn1/summerizer" target="_blank" rel="noopener noreferrer">
                   <Github className="mr-2 h-4 w-4" />
                   Code
                 </a>
@@ -215,26 +214,27 @@ function App() {
               </div>
             </CardHeader>
             <CardContent className="pt-6">
-              <CardTitle>AI Content Generator</CardTitle>
+              <CardTitle>Data Analysis of Starbucks</CardTitle>
               <CardDescription className="mt-2 mb-4">
-                A tool that uses AI to generate marketing content with Node.js and OpenAI API.
+                Analysis into causes of recent negetive revenue growth of Starbucks through scraping and processing reviews.
               </CardDescription>
               <div className="flex flex-wrap gap-2 mb-4">
-                <Badge>Node.js</Badge>
-                <Badge>Express</Badge>
-                <Badge>OpenAI</Badge>
-                <Badge>MongoDB</Badge>
+                <Badge>Python</Badge>
+                <Badge>Selenium</Badge>
+                <Badge>Natural Language Processing</Badge>
+                <Badge>Postresql</Badge>
+                <Badge>PowerBI</Badge>
               </div>
             </CardContent>
             <CardFooter className="flex justify-between">
               <Button asChild variant="outline" size="sm">
-                <a href="#" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/scottlynn1/data_analysis_project_on_starbucks" target="_blank" rel="noopener noreferrer">
                   <Github className="mr-2 h-4 w-4" />
                   Code
                 </a>
               </Button>
               <Button asChild size="sm">
-                <a href="#" target="_blank" rel="noopener noreferrer">
+                <a href="" target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="mr-2 h-4 w-4" />
                   Demo
                 </a>
@@ -245,12 +245,12 @@ function App() {
       </section>
       <section id="skills" className="py-12 md:py-24 scroll-mt-16">
         <h2 className="text-3xl font-bold tracking-tighter mb-8">Skills & Technologies</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="flex gap-6">
           <Card className="flex flex-col items-center p-6">
             <Cpu className="h-10 w-10 mb-4 text-primary" />
             <CardTitle className="text-center">Frontend</CardTitle>
             <CardContent className="pt-4 text-center">
-              <p className="text-muted-foreground">React, Next.js, TypeScript, Tailwind CSS, Redux</p>
+              <p className="text-muted-foreground">React, TypeScript, Tailwind, CSS, Javascript, HTML</p>
             </CardContent>
           </Card>
 
@@ -258,23 +258,23 @@ function App() {
             <Cpu className="h-10 w-10 mb-4 text-primary" />
             <CardTitle className="text-center">Backend</CardTitle>
             <CardContent className="pt-4 text-center">
-              <p className="text-muted-foreground">Node.js, Express, NestJS, GraphQL, REST APIs</p>
+              <p className="text-muted-foreground">Django, Express, Postgresql, Cassandra, REST APIs</p>
             </CardContent>
           </Card>
 
-          <Card className="flex flex-col items-center p-6">
+          {/* <Card className="flex flex-col items-center p-6">
             <Cpu className="h-10 w-10 mb-4 text-primary" />
             <CardTitle className="text-center">Database</CardTitle>
             <CardContent className="pt-4 text-center">
               <p className="text-muted-foreground">MongoDB, PostgreSQL, MySQL, Redis, Prisma</p>
             </CardContent>
-          </Card>
+          </Card> */}
 
           <Card className="flex flex-col items-center p-6">
             <Cpu className="h-10 w-10 mb-4 text-primary" />
-            <CardTitle className="text-center">DevOps</CardTitle>
+            <CardTitle className="text-center">Data Analysis</CardTitle>
             <CardContent className="pt-4 text-center">
-              <p className="text-muted-foreground">Docker, CI/CD, AWS, Vercel, GitHub Actions</p>
+              <p className="text-muted-foreground">Web Scraping, SQL, Excel, Python, PowerBI</p>
             </CardContent>
           </Card>
         </div>
@@ -291,20 +291,20 @@ function App() {
             <div className="space-y-4">
               <div className="flex items-center">
                 <Mail className="h-5 w-5 mr-3 text-primary" />
-                <a href="mailto:john@example.com" className="hover:underline">
-                  john@example.com
+                <a href="mailto:scottlynnfwa@gmail.com" className="hover:underline">
+                  scottlynnfwa@gmail.com
                 </a>
               </div>
               <div className="flex items-center">
                 <Github className="h-5 w-5 mr-3 text-primary" />
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:underline">
-                github.com/johndeveloper
+                <a href="https://github.com/scottlynn1?tab=repositories" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                  github.com/scottlynn1
                 </a>
               </div>
               <div className="flex items-center">
                 <Linkedin className="h-5 w-5 mr-3 text-primary" />
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:underline">
-                  linkedin.com/in/johndeveloper
+                <a href="https://www.linkedin.com/in/scott-lynn-data-eng" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                  linkedin.com/in/scott-lynn-data-eng
                 </a>
               </div>
             </div>
@@ -378,26 +378,26 @@ function App() {
         <div className="container flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <Code className="h-5 w-5" />
-            <span className="font-medium">John Developer</span>
+            <span className="font-medium">Scott Lynn</span>
           </div>
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} John Developer. All rights reserved.
+            © {new Date().getFullYear()} Scott Lynn. All rights reserved.
           </p>
           <div className="flex gap-4">
             <Button variant="ghost" size="icon" asChild>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/scottlynn1?tab=repositories" target="_blank" rel="noopener noreferrer">
                 <Github className="h-4 w-4" />
                 <span className="sr-only">GitHub</span>
               </a>
             </Button>
             <Button variant="ghost" size="icon" asChild>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/scott-lynn-data-eng" target="_blank" rel="noopener noreferrer">
                 <Linkedin className="h-4 w-4" />
                 <span className="sr-only">LinkedIn</span>
               </a>
             </Button>
             <Button variant="ghost" size="icon" asChild>
-              <a href="mailto:john@example.com">
+              <a href="mailto:scottlynnfwa@gmail.com">
                 <Mail className="h-4 w-4" />
                 <span className="sr-only">Email</span>
               </a>
