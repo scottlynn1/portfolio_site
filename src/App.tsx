@@ -5,12 +5,12 @@ import { Badge } from "@/components/ui/badge"
 import { Github, Linkedin, Mail, ExternalLink, User, Code, Cpu } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
-import faceAvatar from './assets/face.png'
+import faceAvatar from './assets/face2.jpg'
 import fullPhoto from './assets/fullphoto.jpg'
 import solarProject from './assets/solarproject.png'
 import UIProject from './assets/UIproject.png'
-import analysisProject from './assets/analysisproject.png'
-
+import analysisProject from './assets/analysisproject2.png'
+import ContactForm from './components/form'
 
 
 
@@ -115,7 +115,7 @@ function App() {
           </div>
           <div className="relative h-[400px] rounded-lg overflow-hidden">
           <AspectRatio ratio={16 / 9}>
-            <img src={fullPhoto} alt="Girl in a jacket" width="500" height="600"></img>
+            <img src={fullPhoto} alt="Girl in a jacket" width="500" height="600" className='m-auto'></img>
           </AspectRatio>
           </div>
         </div>
@@ -128,7 +128,7 @@ function App() {
           <Card>
             <CardHeader className="p-0">
               <div className="relative h-48 w-full">
-                <img src={solarProject} alt="Project 1" className="object-cover rounded-t-lg" />
+                <img src={solarProject} alt="Project 1" className="object-cover rounded-t-lg max-h-[240px] m-auto" />
               </div>
             </CardHeader>
             <CardContent className="pt-6">
@@ -163,14 +163,7 @@ function App() {
           <Card>
             <CardHeader className="p-0">
               <div className="relative h-48 w-full">
-              <img src={UIProject} alt="Project 1" className="object-cover rounded-t-lg" />
-
-                {/* <Image
-                  src="/placeholder.svg?height=192&width=384"
-                  alt="Project 2"
-                  fill
-                  className="object-cover rounded-t-lg"
-                /> */}
+              <img src={UIProject} alt="Project 1" className="object-cover rounded-t-lg max-h-[240px] m-auto" />
               </div>
             </CardHeader>
             <CardContent className="pt-6">
@@ -193,7 +186,7 @@ function App() {
                 </a>
               </Button>
               <Button asChild size="sm">
-                <a href="#" target="_blank" rel="noopener noreferrer">
+                <a href="https://project1.scottlynn.live" target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="mr-2 h-4 w-4" />
                   Demo
                 </a>
@@ -205,14 +198,7 @@ function App() {
           <Card>
             <CardHeader className="p-0">
               <div className="relative h-48 w-full">
-              <img src={analysisProject} alt="Project 1" className="object-cover rounded-t-lg" />
-
-                {/* <Image
-                  src="/placeholder.svg?height=192&width=384"
-                  alt="Project 3"
-                  fill
-                  className="object-cover rounded-t-lg"
-                /> */}
+              <img src={analysisProject} alt="Project 1" className="object-cover rounded-t-lg max-h-[240px] m-auto" />
               </div>
             </CardHeader>
             <CardContent className="pt-6">
@@ -247,8 +233,8 @@ function App() {
       </section>
       <section id="skills" className="py-12 md:py-24 scroll-mt-16">
         <h2 className="text-3xl font-bold tracking-tighter mb-8">Skills & Technologies</h2>
-        <div className="flex gap-6">
-          <Card className="flex flex-col items-center p-6">
+        <div className="flex gap-6 flex-wrap justify-center">
+          <Card className="flex flex-col items-center p-6 max-w-[300px]">
             <Cpu className="h-10 w-10 mb-4 text-primary" />
             <CardTitle className="text-center">Frontend</CardTitle>
             <CardContent className="pt-4 text-center">
@@ -256,7 +242,7 @@ function App() {
             </CardContent>
           </Card>
 
-          <Card className="flex flex-col items-center p-6">
+          <Card className="flex flex-col items-center p-6 max-w-[300px]">
             <Cpu className="h-10 w-10 mb-4 text-primary" />
             <CardTitle className="text-center">Backend</CardTitle>
             <CardContent className="pt-4 text-center">
@@ -264,15 +250,7 @@ function App() {
             </CardContent>
           </Card>
 
-          {/* <Card className="flex flex-col items-center p-6">
-            <Cpu className="h-10 w-10 mb-4 text-primary" />
-            <CardTitle className="text-center">Database</CardTitle>
-            <CardContent className="pt-4 text-center">
-              <p className="text-muted-foreground">MongoDB, PostgreSQL, MySQL, Redis, Prisma</p>
-            </CardContent>
-          </Card> */}
-
-          <Card className="flex flex-col items-center p-6">
+          <Card className="flex flex-col items-center p-6 max-w-[300px]">
             <Cpu className="h-10 w-10 mb-4 text-primary" />
             <CardTitle className="text-center">Data Analysis</CardTitle>
             <CardContent className="pt-4 text-center">
@@ -312,7 +290,8 @@ function App() {
             </div>
           </div>
           <div>
-            <form action='https://script.google.com/macros/s/AKfycbwx_xlZMdmO2eHfMc8sTkt_J56UwDQgoQ4hRor95x4o8phKd8ukI5UP0GSTPbtfNrU9Aw/exec' method='POST' className="space-y-4">
+            <ContactForm />
+            {/* <form action='https://script.google.com/macros/s/AKfycbwx_xlZMdmO2eHfMc8sTkt_J56UwDQgoQ4hRor95x4o8phKd8ukI5UP0GSTPbtfNrU9Aw/exec' method='POST' className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label
@@ -375,7 +354,7 @@ function App() {
               <Button className="w-full">
                 Send Message
               </Button>
-            </form>
+            </form> */}
           </div>
         </div>
       </section>

@@ -7,9 +7,9 @@ const ContactForm = () => {
   const [success, setSuccess] = useState('hidden');
 
 
-  const handelSubmit = (e) => {
+  const handelSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const form = e.target;
+    const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
     console.log(data);
