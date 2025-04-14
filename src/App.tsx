@@ -221,12 +221,12 @@ function App() {
                   Code
                 </a>
               </Button>
-              <Button asChild size="sm">
+              {/* <Button asChild size="sm">
                 <a href="" target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="mr-2 h-4 w-4" />
                   Demo
                 </a>
-              </Button>
+              </Button> */}
             </CardFooter>
           </Card>
         </div>
