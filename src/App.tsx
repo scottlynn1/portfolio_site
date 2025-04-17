@@ -151,7 +151,7 @@ function App() {
                 </a>
               </Button>
               <Button asChild size="sm">
-                <a href="#" target="_blank" rel="noopener noreferrer">
+                <a href="https://project2.scottlynn.live" target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="mr-2 h-4 w-4" />
                   Demo
                 </a>
