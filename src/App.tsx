@@ -2,7 +2,7 @@ import './App.css'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Github, Linkedin, Mail, ExternalLink, User, Code, Cpu } from "lucide-react"
+import { Github, Linkedin, Mail, ExternalLink, Code, Cpu } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 import faceAvatar from './assets/face2.jpg'
@@ -19,14 +19,13 @@ function App() {
 
   return (
     <>
-      <main>
       <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between">
+        <div className="flex flex-col md:flex-row h-16 items-center justify-between w-full py-2">
           <div className="flex items-center gap-2">
             <Code className="h-6 w-6" />
             <span className="text-lg font-bold">DevPortfolio</span>
           </div>
-          <nav className="hidden md:flex gap-6">
+          <nav className="flex gap-6">
             <a href="#about" className="text-sm font-medium hover:underline underline-offset-4">
               About
             </a>
@@ -40,7 +39,7 @@ function App() {
               Contact
             </a>
           </nav>
-          <div className="flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-2">
             {/* <ModeToggle /> */}
             <Button asChild size="sm" className="hidden md:flex">
               <a href="#contact">
@@ -51,6 +50,7 @@ function App() {
           </div>
         </div>
       </header>
+      <main>
       <section className="py-12 md:py-24 lg:py-32 flex flex-col items-center text-center shadow-lg">
         <div className="relative w-48 h-48 mb-8 rounded-full overflow-hidden border-4 border-primary">
           <Avatar className='w-full h-full'>
@@ -95,23 +95,23 @@ function App() {
       </section>
       <section id="about" className="py-4 md:py-8 scroll-mt-16 shadow-lg">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
+          <div className='p-4 md:ml-8 font-mono'>
             <h2 className="text-3xl font-bold tracking-tighter mb-4">About Me</h2>
             <p className="text-muted-foreground mb-4">
             I'm an aspiring data analyst and developer with several projects and freelance work under my belt.
-            I have worked with technologies like Python, SQL, JavaScript, and React to analyze datasets, automate processes, and create user-friendly UIs'.
+            I have worked with frameworks and tools like Django, React, Postgresql and Power BI to analyze datasets, automate processes, and create user-friendly UIs'.
             Passionate about problem-solving, I enjoy leveraging data and technology to build innovative solutions.
             </p>
             <p className="text-muted-foreground mb-6">
               When I'm not coding, you can find me kayaking, reading tech blogs, or contributing to open-source
               projects. I'm always eager to learn new technologies and improve my skills.
             </p>
-            <Button asChild variant="outline">
+            {/* <Button asChild variant="outline">
               <a href="#" className="inline-flex items-center">
                 <User className="mr-2 h-4 w-4" />
                 Download Resume
               </a>
-            </Button>
+            </Button> */}
           </div>
           <div className="relative h-[400px] rounded-lg overflow-hidden">
           <AspectRatio ratio={16 / 9}>
@@ -121,7 +121,7 @@ function App() {
         </div>
       </section>
 
-      <section id="projects" className="py-4 md:py-8 scroll-mt-16">
+      <section id="projects" className="py-4 md:py-8 scroll-mt-16 shadow-lg">
         <h2 className="text-3xl font-bold tracking-tighter mb-8">Featured Projects</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Project 1 */}
@@ -141,6 +141,7 @@ function App() {
                 <Badge>Google Maps API</Badge>
                 <Badge>Javascript</Badge>
                 <Badge>Tailwindcss</Badge>
+                <Badge>Docker</Badge>
               </div>
             </CardContent>
             <CardFooter className="flex justify-between">
@@ -176,6 +177,7 @@ function App() {
                 <Badge>Django</Badge>
                 <Badge>LlamaIndex LLM</Badge>
                 <Badge>Tailwindcss</Badge>
+                <Badge>Docker</Badge>
               </div>
             </CardContent>
             <CardFooter className="flex justify-between">
@@ -231,7 +233,7 @@ function App() {
           </Card>
         </div>
       </section>
-      <section id="skills" className="py-12 md:py-24 scroll-mt-16">
+      <section id="skills" className="py-12 md:py-24 scroll-mt-16 shadow-lg">
         <h2 className="text-3xl font-bold tracking-tighter mb-8">Skills & Technologies</h2>
         <div className="flex gap-6 flex-wrap justify-center">
           <Card className="flex flex-col items-center p-6 max-w-[300px]">
@@ -260,9 +262,9 @@ function App() {
         </div>
       </section>
       
-      <section id="contact" className="py-12 md:py-24 scroll-mt-16">
+      <section id="contact" className="py-12 px-4 md:py-24 scroll-mt-16">
         <div className="grid md:grid-cols-2 gap-12">
-          <div>
+          <div className='font-mono'>
             <h2 className="text-3xl font-bold tracking-tighter mb-4">Get In Touch</h2>
             <p className="text-muted-foreground mb-6">
               I'm currently available for freelance work and full-time positions. If you have a project that needs
@@ -359,8 +361,8 @@ function App() {
         </div>
       </section>
       </main>
-      <footer className="border-t py-6 md:py-8">
-        <div className="container flex flex-col md:flex-row items-center justify-between gap-4">
+      <footer className="border-t py-6 md:py-8 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 py-2">
           <div className="flex items-center gap-2">
             <Code className="h-5 w-5" />
             <span className="font-medium">Scott Lynn</span>
