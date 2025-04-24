@@ -11,6 +11,7 @@ import solarProject from './assets/solarproject.png'
 import UIProject from './assets/UIproject.png'
 import analysisProject from './assets/analysisproject2.png'
 import ContactForm from './components/form'
+import AnimateOnScroll from './components/AnimateOnScroll'
 
 
 
@@ -120,7 +121,7 @@ function App() {
           </div>
         </div>
       </section>
-
+      <AnimateOnScroll reappear>
       <section id="projects" className="py-4 md:py-8 scroll-mt-16 shadow-lg">
         <h2 className="text-3xl font-bold tracking-tighter mb-8">Featured Projects</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -160,7 +161,6 @@ function App() {
             </CardFooter>
           </Card>
 
-          {/* Project 2 */}
           <Card>
             <CardHeader className="p-0">
               <div className="relative h-48 w-full">
@@ -196,7 +196,6 @@ function App() {
             </CardFooter>
           </Card>
 
-          {/* Project 3 */}
           <Card>
             <CardHeader className="p-0">
               <div className="relative h-48 w-full">
@@ -233,6 +232,8 @@ function App() {
           </Card>
         </div>
       </section>
+      </AnimateOnScroll>
+      <AnimateOnScroll reappear>
       <section id="skills" className="py-12 md:py-24 scroll-mt-16 shadow-lg">
         <h2 className="text-3xl font-bold tracking-tighter mb-8">Skills & Technologies</h2>
         <div className="flex gap-6 flex-wrap justify-center">
@@ -261,6 +262,7 @@ function App() {
           </Card>
         </div>
       </section>
+      </AnimateOnScroll>
       
       <section id="contact" className="py-12 px-4 md:py-24 scroll-mt-16">
         <div className="grid md:grid-cols-2 gap-12">
