@@ -12,11 +12,28 @@ import UIProject from './assets/UIproject.png'
 import analysisProject from './assets/analysisproject2.png'
 import ContactForm from './components/form'
 import AnimateOnScroll from './components/AnimateOnScroll'
+import { useEffect, useState } from "react"
 
 
 
 
 function App() {
+  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    // Create a resize event listener
+    const handleResize = () => {
+      setViewportWidth(window.innerWidth);
+    };
+
+    // Add event listener to track window resize
+    window.addEventListener('resize', handleResize);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
     <>
@@ -121,7 +138,7 @@ function App() {
           </div>
         </div>
       </section>
-      <AnimateOnScroll reappear>
+      <AnimateOnScroll reappear threshold={viewportWidth > 770 ? 0.5 : 0.2}>
       <section id="projects" className="py-4 md:py-8 scroll-mt-16 shadow-lg">
         <h2 className="text-3xl font-bold tracking-tighter mb-8">Featured Projects</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -233,7 +250,7 @@ function App() {
         </div>
       </section>
       </AnimateOnScroll>
-      <AnimateOnScroll reappear>
+      <AnimateOnScroll reappear threshold={viewportWidth > 770 ? 0.5 : 0.2}>
       <section id="skills" className="py-12 md:py-24 scroll-mt-16 shadow-lg">
         <h2 className="text-3xl font-bold tracking-tighter mb-8">Skills & Technologies</h2>
         <div className="flex gap-6 flex-wrap justify-center">
