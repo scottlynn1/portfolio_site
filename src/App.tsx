@@ -44,16 +44,16 @@ function App() {
             <span className="text-lg font-bold">DevPortfolio</span>
           </div>
           <nav className="flex gap-6">
-            <a href="#about" className="text-sm font-medium hover:underline underline-offset-4">
+            <a href="#about" className="text-md font-medium hover:underline underline-offset-4">
               About
             </a>
-            <a href="#projects" className="text-sm font-medium hover:underline underline-offset-4">
+            <a href="#projects" className="text-md font-medium hover:underline underline-offset-4">
               Projects
             </a>
-            <a href="#skills" className="text-sm font-medium hover:underline underline-offset-4">
+            <a href="#skills" className="text-md font-medium hover:underline underline-offset-4">
               Skills
             </a>
-            <a href="#contact" className="text-sm font-medium hover:underline underline-offset-4">
+            <a href="#contact" className="text-md font-medium hover:underline underline-offset-4">
               Contact
             </a>
           </nav>

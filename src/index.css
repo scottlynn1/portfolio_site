@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 main {
-  background-image: linear-gradient(to right, #dce4e7, #cbd6e2);
+  background-image: linear-gradient(to right, #e7e7dc, #e2cbce);
 }
 
 :root {
