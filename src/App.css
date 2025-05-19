@@ -41,3 +41,33 @@ main {
 .read-the-docs {
   color: #888;
 }
+
+summary::-webkit-details-marker {
+  display: none;
+}
+summary {
+  list-style: none;    
+  cursor: pointer;  
+}
+
+summary:hover > div {
+  transition: all .3s ease-in-out;
+  width: 25px;
+  transform: rotate(180);
+}
+
+details[open] img {
+  transform: rotate(180deg);
+}
+
+.banner {
+  background-color: rgb(218, 196, 196);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); /* Simulates blur */
+
+}
+
+@media (min-width: 480px) and (max-width: 880px) {
+  .rangehide {
+    display: none;
+  }
+}

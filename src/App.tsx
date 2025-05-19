@@ -2,9 +2,11 @@ import './App.css'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Github, Linkedin, Mail, ExternalLink, Code, Cpu } from "lucide-react"
+import { Github, Linkedin, Mail, ExternalLink, Cpu } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
+import dropdownIcon from './assets/dropdownIcon.svg'
+import mylogo from './assets/mylogo.svg'
 import faceAvatar from './assets/face2.jpg'
 import fullPhoto from './assets/fullphoto.jpg'
 import solarProject from './assets/solarproject.png'
@@ -12,7 +14,7 @@ import UIProject from './assets/UIproject.png'
 import analysisProject from './assets/analysisproject2.png'
 import ContactForm from './components/form'
 import AnimateOnScroll from './components/AnimateOnScroll'
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 
 
 
@@ -35,46 +37,117 @@ function App() {
     };
   }, []);
 
+  const expandableRef = useRef(null);
+
+  useEffect(() => {
+    expandableRef.current = document.getElementById('expandable');
+
+    const handleClick = () => {
+      if (expandableRef.current?.open) {
+        expandableRef.current.querySelector('summary').click();
+      }
+    };
+
+    document.addEventListener("click", handleClick);
+
+    return () => {
+      document.removeEventListener("click", handleClick);
+    };
+  }, []);
+
+  const closeExpandable = () => {
+    if (expandableRef.current?.open) {
+      expandableRef.current.querySelector('summary').click();
+    }
+  };
+
   return (
     <>
-      <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="flex flex-col md:flex-row h-16 items-center justify-between w-full py-2">
-          <div className="flex items-center gap-2">
-            <Code className="h-6 w-6" />
-            <span className="text-lg font-bold">DevPortfolio</span>
+      <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 py-4">
+        <div className="flex flex-col min-[880px]:flex-row min-h-16 items-center justify-between w-full py-2">
+          <div className="flex items-center gap-2 mx-2">
+            {/* <Code className="h-6 w-6" /> */}
+            <img src={mylogo} className='w-12 h-12'></img>
+            <span className="text-lg font-bold ">DevPortfolio</span>
           </div>
-          <nav className="flex gap-6">
-            <a href="#about" className="text-md font-medium hover:underline underline-offset-4">
-              About
-            </a>
-            <a href="#projects" className="text-md font-medium hover:underline underline-offset-4">
-              Projects
-            </a>
-            <a href="#skills" className="text-md font-medium hover:underline underline-offset-4">
-              Skills
-            </a>
-            <a href="#contact" className="text-md font-medium hover:underline underline-offset-4">
-              Contact
-            </a>
-          </nav>
-          <div className="hidden md:flex items-center gap-2">
-            {/* <ModeToggle /> */}
-            <Button asChild size="sm" className="hidden md:flex">
-              <a href="#contact">
-                <Mail className="mr-2 h-4 w-4" />
-                Contact Me
-              </a>
-            </Button>
+          <div className='hidden min-[480px]:block'>
+            <nav className=''>
+              <ul className="flex gap-6">
+                <li>
+                  <a href="#about" className="text-lg mx-1 md:mx-4 font-medium hover:underline underline-offset-4">
+                    About
+                </a>
+                </li>
+                <li>
+                  <a href="#projects" className="text-lg mx-1 md:mx-4 font-medium hover:underline underline-offset-4">
+                    Projects
+                  </a>
+                </li>
+                <li>
+                  <a href="#skills" className="text-lg mx-1 md:mx-4 font-medium hover:underline underline-offset-4">
+                    Skills
+                  </a>
+                </li>
+                <li>
+                  <a href="#contact" className="text-lg mx-1 md:mx-4 font-medium hover:underline underline-offset-4">
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div className='flex flex-row justify-between self-stretch min-[880px]:self-center'>
+            <div className='block min-[480px]:hidden'>
+              <details className='relative m-2' id='expandable'>
+                <summary className='w-6 '>
+                  <div className='w-5 m-auto'><img src={dropdownIcon} className='m-auto w-full transition-all transition-700'></img></div>
+                </summary>
+                <nav className='absolute bg-background/95 rounded-sm border-2 border-gray-300 left-8 top-2 p-2'>
+                  <ul className="flex-col gap-6">
+                    <li onClick={closeExpandable}>
+                      <a href="#about" className="text-lg mx-1 md:mx-4 font-medium hover:underline underline-offset-4">
+                        About
+                    </a>
+                    </li>
+                    <li onClick={closeExpandable}>
+                      <a href="#projects" className="text-lg mx-1 md:mx-4 font-medium hover:underline underline-offset-4">
+                        Projects
+                      </a>
+                    </li>
+                    <li onClick={closeExpandable}>
+                      <a href="#skills" className="text-lg mx-1 md:mx-4 font-medium hover:underline underline-offset-4">
+                        Skills
+                      </a>
+                    </li>
+                    <li onClick={closeExpandable}>
+                      <a href="#contact" className="text-lg mx-1 md:mx-4 font-medium hover:underline underline-offset-4">
+                        Contact
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </details>
+            </div>
+            <div className="items-center gap-2 mx-2 rangehide">
+              <Button asChild size="sm" className="flex">
+                <a href="#contact">
+                  <Mail className="mr-2 h-4 w-4" />
+                  Contact Me
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
       </header>
       <main>
       <section className="py-12 md:py-24 lg:py-32 flex flex-col items-center text-center shadow-lg">
-        <div className="relative w-48 h-48 mb-8 rounded-full overflow-hidden border-4 border-primary">
-          <Avatar className='w-full h-full'>
-            <AvatarImage src={faceAvatar} />
-            <AvatarFallback>SL</AvatarFallback>
-          </Avatar>
+        <div className='w-full banner pt-6 mb-6'>
+          <div className="relative w-48 h-48 mb-8 rounded-full overflow-hidden border-4 border-primary m-auto">
+            <Avatar className='w-full h-full'>
+              <AvatarImage src={faceAvatar} />
+              <AvatarFallback>SL</AvatarFallback>
+            </Avatar>
+          </div>
         </div>
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-4">Scott Lynn</h1>
         <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-[700px]">
@@ -138,7 +211,7 @@ function App() {
           </div>
         </div>
       </section>
-      <AnimateOnScroll reappear threshold={viewportWidth > 770 ? 0.5 : 0.2}>
+      <AnimateOnScroll reappear threshold={viewportWidth > 770 && !window.matchMedia("(orientation: landscape)").matches ? 0.5 : 0.2}>
       <section id="projects" className="py-4 md:py-8 scroll-mt-16 shadow-lg">
         <h2 className="text-3xl font-bold tracking-tighter mb-8">Featured Projects</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -191,7 +264,7 @@ function App() {
               </CardDescription>
               <div className="flex flex-wrap gap-2 mb-4">
                 <Badge>React</Badge>
-                <Badge>Django</Badge>
+                <Badge>FastAPI</Badge>
                 <Badge>LlamaIndex LLM</Badge>
                 <Badge>Tailwindcss</Badge>
                 <Badge>Docker</Badge>
@@ -250,13 +323,13 @@ function App() {
         </div>
       </section>
       </AnimateOnScroll>
-      <AnimateOnScroll reappear threshold={viewportWidth > 770 ? 0.5 : 0.2}>
+      <AnimateOnScroll reappear threshold={viewportWidth > 770 && !window.matchMedia("(orientation: landscape)").matches ? 0.5 : 0.2}>
       <section id="skills" className="py-12 md:py-24 scroll-mt-16 shadow-lg">
         <h2 className="text-3xl font-bold tracking-tighter mb-8">Skills & Technologies</h2>
         <div className="flex gap-6 flex-wrap justify-center">
           <Card className="flex flex-col items-center p-6 max-w-[300px]">
             <Cpu className="h-10 w-10 mb-4 text-primary" />
-            <CardTitle className="text-center">Frontend</CardTitle>
+            <CardTitle className="text-center text-2xl">Frontend</CardTitle>
             <CardContent className="pt-4 text-center">
               <p className="text-muted-foreground">React, TypeScript, Tailwind, CSS, Javascript, HTML</p>
             </CardContent>
@@ -264,15 +337,15 @@ function App() {
 
           <Card className="flex flex-col items-center p-6 max-w-[300px]">
             <Cpu className="h-10 w-10 mb-4 text-primary" />
-            <CardTitle className="text-center">Backend</CardTitle>
+            <CardTitle className="text-center text-2xl">Backend</CardTitle>
             <CardContent className="pt-4 text-center">
-              <p className="text-muted-foreground">Django, Express, Postgresql, Cassandra, REST APIs</p>
+              <p className="text-muted-foreground">Django, FastAPI, Express, Postgresql, Cassandra, REST APIs</p>
             </CardContent>
           </Card>
 
           <Card className="flex flex-col items-center p-6 max-w-[300px]">
             <Cpu className="h-10 w-10 mb-4 text-primary" />
-            <CardTitle className="text-center">Data Analysis</CardTitle>
+            <CardTitle className="text-center text-2xl">Data Analysis</CardTitle>
             <CardContent className="pt-4 text-center">
               <p className="text-muted-foreground">Web Scraping, SQL, Excel, Python, PowerBI</p>
             </CardContent>
@@ -382,14 +455,15 @@ function App() {
       </main>
       <footer className="border-t py-6 md:py-8 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 py-2">
-          <div className="flex items-center gap-2">
-            <Code className="h-5 w-5" />
+          <div className="flex items-center gap-2 mx-2">
+            {/* <Code className="h-5 w-5" /> */}
+            <img src={mylogo} className='h-12 w-12'></img>
             <span className="font-medium">Scott Lynn</span>
           </div>
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Scott Lynn. All rights reserved.
           </p>
-          <div className="flex gap-4">
+          <div className="flex gap-4 mx-2">
             <Button variant="ghost" size="icon" asChild>
               <a href="https://github.com/scottlynn1?tab=repositories" target="_blank" rel="noopener noreferrer">
                 <Github className="h-4 w-4" />
