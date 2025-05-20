@@ -49,7 +49,6 @@ function App() {
     };
 
     document.addEventListener("click", handleClick);
-
     return () => {
       document.removeEventListener("click", handleClick);
     };
@@ -60,6 +59,9 @@ function App() {
       expandableRef.current.querySelector('summary').click();
     }
   };
+
+
+
 
   return (
     <>
@@ -96,7 +98,8 @@ function App() {
               </ul>
             </nav>
           </div>
-          <div className='flex flex-row justify-between self-stretch min-[880px]:self-center'>
+          <div className='flex flex-row justify-between self-stretch min-[880px]:self-center' onClick={(e) => e.stopPropagation()}
+          >
             <div className='block min-[480px]:hidden'>
               <details className='relative m-2' id='expandable'>
                 <summary className='w-6 '>
